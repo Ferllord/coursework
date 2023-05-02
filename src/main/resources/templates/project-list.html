@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Projects</title>
+</head>
+<body>
+<div th:switch="${projects}">
+  <h2 th:case="null">No projects found!</h2>
+  <div th:case="*">
+    <h2>Projects</h2>
+    <table>
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Project name</th>
+        <th>Budget</th>
+        <th>Start Date</th>
+        <th>Deadline</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="project : ${projects}">
+        <td th:text="${project.id}"></td>
+        <td th:text="${project.projectName}"></td>
+        <td th:text="${project.budget}"></td>
+        <td th:text="${project.startDate}"></td>
+        <td th:text="${project.deadline}"></td>
+        <td><a th:href="@{project-update/{id}(id=${project.id})}">Edit</a></td>
+        <td><a th:href="@{project-delete/{id}(id=${project.id})}">Delete</a></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <p><a href="/project-create">Create project</a></p>
+  <p><a href="/employees">Employees</a></p>
+  <p><a href="/work_time">Logs</a></p>
+</div>
+</body>
+</html>

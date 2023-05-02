@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Create employee</title>
+</head>
+<body>
+<form action="#" th:action="@{/work_time-create}" th:object="${workTime}" method="post" style="display: flex; flex-direction: column">
+    <div style="display: flex"><label for="employeeId">Employee Id</label>
+        <input type="text" th:field="*{employeeId}" id="employeeId" placeholder="Employee Id"></div>
+    <div><label for="projectId">Project Id</label>
+        <input type="text" th:field="*{projectId}" id="projectId" placeholder="Project Id"></div>
+    <div><label for="startTime">Start Time</label>
+        <input type="text" th:field="*{startTime}" id="startTime" placeholder="Start Time"></div>
+    <div><label for="endTime">End Time</label>
+        <input type="text" th:field="*{endTime}" id="endTime" placeholder="End Time"></div>
+    <div><input type="submit" value="Create Log"></div>
+</form>
+</body>
+</html>

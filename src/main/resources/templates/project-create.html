@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Create project</title>
+</head>
+<body>
+<form action="#" th:action="@{/project-create}" th:object="${project}" method="post" style="display: flex; flex-direction: column">
+  <div style="display: flex"><label for="projectName">Project name</label>
+    <input type="text" th:field="*{projectName}" id="projectName" placeholder="Project Name"></div>
+  <div><label for="budget">Budget</label>
+    <input type="text" th:field="*{budget}" id="budget" placeholder="Budget"></div>
+  <div><label for="startDate">Start Date</label>
+    <input type="text" th:field="*{startDate}" id="startDate" placeholder="Start Date"></div>
+  <div><label for="deadline">Deadline</label>
+    <input type="text" th:field="*{deadline}" id="deadline" placeholder="Deadline"></div>
+  <div><input type="submit" value="Create Project"></div>
+</form>
+</body>
+</html>

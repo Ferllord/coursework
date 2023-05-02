@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<meta charset="UTF-8">
+<title>Create project</title>
+</head>
+<body>
+<form action="#" th:action="@{/project-update}" th:object="${project}" method="post">
+  <label for="id">ID</label>
+  <input readonly type="number" th:field="*{id}" id="id" placeholder="ID">
+  <br/>
+  <label for="projectName">Project name</label>
+  <input type="text" th:field="*{projectName}" id="projectName" placeholder="Project Name">
+  <br/>
+  <label for="budget">Budget</label>
+  <input type="text" th:field="*{budget}" id="budget" placeholder="Budget">
+  <br/>
+  <label for="startDate">Start Date</label>
+  <input type="text" th:field="*{startDate}" id="startDate" placeholder="Start Date">
+  <br/>
+  <label for="deadline">Deadline</label>
+  <input type="text" th:field="*{deadline}" id="deadline" placeholder="Deadline">
+  <br/>
+  <input type="submit" value="Update Employee">
+</form>
+</body>
+</html>

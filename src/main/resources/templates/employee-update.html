@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<meta charset="UTF-8">
+<title>Create employee</title>
+</head>
+<body>
+<form action="#" th:action="@{/employee-update}" th:object="${employee}" method="post">
+  <label for="id">ID</label>
+  <input readonly type="number" th:field="*{id}" id="id" placeholder="ID">
+  <br/>
+  <label for="firstName">First name</label>
+  <input type="text" th:field="*{firstName}" id="firstName" placeholder="First Name">
+  <br/>
+  <label for="lastName">Last name</label>
+  <input type="text" th:field="*{lastName}" id="lastName" placeholder="Last Name">
+  <br/>
+  <label for="lastName">Position</label>
+  <input type="text" th:field="*{position}" id="position" placeholder="Position">
+  <br/>
+  <label for="lastName">Phone Number</label>
+  <input type="text" th:field="*{phoneNumber}" id="phoneNumber" placeholder="Phone Number">
+  <br/>
+  <label for="lastName">Email</label>
+  <input type="text" th:field="*{emailAddress}" id="emailAddress" placeholder="Email">
+  <br/>
+  <input type="submit" value="Update Employee">
+</form>
+</body>
+</html>

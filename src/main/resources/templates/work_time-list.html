@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Employees</title>
+</head>
+<body>
+<div th:switch="${worktimes}">
+    <h2 th:case="null">No logs found!</h2>
+    <div th:case="*">
+        <h2>Logs</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Employee Id</th>
+                <th>Project Id</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="worktime : ${worktimes}">
+                <td th:text="${worktime.id}"></td>
+                <td th:text="${worktime.employeeId}"></td>
+                <td th:text="${worktime.projectId}"></td>
+                <td th:text="${worktime.startTime}"></td>
+                <td th:text="${worktime.endTime}"></td>
+                <td><a th:href="@{work_time-update/{id}(id=${worktime.id})}">Edit</a></td>
+                <td><a th:href="@{work_time-delete/{id}(id=${worktime.id})}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/work_time-create">Create log</a></p>
+    <p><a href="/employees">Employees</a></p>
+    <p><a href="/projects">Projects</a></p>
+</div>
+</body>
+</html>
