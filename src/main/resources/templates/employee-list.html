@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Employees</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/list.css">
 </head>
 <body>
 <div th:switch="${employees}">
     <h2 th:case="null">No employees found!</h2>
     <div th:case="*">
-        <h2>Employees</h2>
+        <h2 th:text="'Employees (' + ${#lists.size(employees)} + ')'"></h2>
         <table>
             <thead>
             <tr>

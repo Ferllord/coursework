@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Create employee</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/create.css" />
 </head>
 <body>
 <form action="#" th:action="@{/work_time-create}" th:object="${workTime}" method="post" style="display: flex; flex-direction: column">
-    <div style="display: flex"><label for="employeeId">Employee Id</label>
+    <div><label for="employeeId">Employee Id</label>
         <input type="text" th:field="*{employeeId}" id="employeeId" placeholder="Employee Id"></div>
     <div><label for="projectId">Project Id</label>
         <input type="text" th:field="*{projectId}" id="projectId" placeholder="Project Id"></div>

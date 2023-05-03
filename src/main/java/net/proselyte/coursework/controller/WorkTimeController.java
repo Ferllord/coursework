@@ -1,6 +1,5 @@
 package net.proselyte.coursework.controller;
 
-import net.proselyte.coursework.model.Project;
 import net.proselyte.coursework.model.WorkTime;
 import net.proselyte.coursework.service.WorkTimeService;
 import org.springframework.beans.factory.annotation.Autowired;

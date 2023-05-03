@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <title>Create project</title>
+  <link rel="stylesheet" type="text/css" href="../static/css/create.css" />
 </head>
 <body>
 <form action="#" th:action="@{/project-create}" th:object="${project}" method="post" style="display: flex; flex-direction: column">
-  <div style="display: flex"><label for="projectName">Project name</label>
+  <div><label for="projectName">Project name</label>
     <input type="text" th:field="*{projectName}" id="projectName" placeholder="Project Name"></div>
   <div><label for="budget">Budget</label>
     <input type="text" th:field="*{budget}" id="budget" placeholder="Budget"></div>
