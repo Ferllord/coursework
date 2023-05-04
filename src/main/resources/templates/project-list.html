@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Projects</title>
   <link rel="stylesheet" type="text/css" href="../static/css/list.css">
+  <script src="../static/js/TableSort.js"></script>
 </head>
 <body>
 <div th:switch="${projects}">
@@ -13,22 +14,23 @@
     <table>
       <thead>
       <tr>
-        <th>Id</th>
-        <th>Project name</th>
-        <th>Budget</th>
-        <th>Start Date</th>
-        <th>Deadline</th>
+        <th data-sort="id">Id<i data-direction class="fas"></i></th>
+        <th data-sort="projectName">Project name<i data-direction class="fas"></i></th>
+        <th data-sort="budget">Budget<i data-direction class="fas"></i></th>
+        <th data-sort="startDate">Start Date<i data-direction class="fas"></i></th>
+        <th data-sort="deadline">Deadline<i data-direction class="fas"></i></th>
+        <th>Action</th>
       </tr>
       </thead>
       <tbody>
       <tr th:each="project : ${projects}">
-        <td th:text="${project.id}"></td>
-        <td th:text="${project.projectName}"></td>
-        <td th:text="${project.budget}"></td>
-        <td th:text="${project.startDate}"></td>
-        <td th:text="${project.deadline}"></td>
-        <td><a th:href="@{project-update/{id}(id=${project.id})}">Edit</a></td>
-        <td><a th:href="@{project-delete/{id}(id=${project.id})}">Delete</a></td>
+        <td data-property="id" th:text="${project.id}"></td>
+        <td data-property="projectName" th:text="${project.projectName}"></td>
+        <td data-property="budget" th:text="${project.budget}"></td>
+        <td data-property="startDate" th:text="${project.startDate}"></td>
+        <td data-property="deadline" th:text="${project.deadline}"></td>
+        <td><a th:href="@{project-update/{id}(id=${project.id})}">Edit</a>
+          <a th:href="@{project-delete/{id}(id=${project.id})}">Delete</a></td>
       </tr>
       </tbody>
     </table>

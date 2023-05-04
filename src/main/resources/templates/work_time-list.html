@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Employees</title>
     <link rel="stylesheet" type="text/css" href="../static/css/list.css" />
+    <script src="../static/js/TableSort.js"></script>
 </head>
 <body>
 <div th:switch="${worktimes}">
@@ -13,22 +14,23 @@
         <table>
             <thead>
             <tr>
-                <th>Id</th>
-                <th>Employee Id</th>
-                <th>Project Id</th>
-                <th>Start Time</th>
-                <th>End Time</th>
+                <th data-sort="id" a>Id<i data-direction class="fas"></i></th>
+                <th data-sort="employeeId">Employee Id<i data-direction class="fas"></i></th>
+                <th data-sort="projectId">Project Id<i data-direction class="fas"></i></th>
+                <th data-sort="startTime">Start Time<i data-direction class="fas"></i></th>
+                <th data-sort="endTime">End Time<i data-direction class="fas"></i></th>
+                <th>Action</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="worktime : ${worktimes}">
-                <td th:text="${worktime.id}"></td>
-                <td th:text="${worktime.employeeId}"></td>
-                <td th:text="${worktime.projectId}"></td>
-                <td th:text="${worktime.startTime}"></td>
-                <td th:text="${worktime.endTime}"></td>
-                <td><a th:href="@{work_time-update/{id}(id=${worktime.id})}">Edit</a></td>
-                <td><a th:href="@{work_time-delete/{id}(id=${worktime.id})}">Delete</a></td>
+                <td data-property="id" th:text="${worktime.id}"></td>
+                <td data-property="employeeId" th:text="${worktime.employeeId}"></td>
+                <td data-property="projectId" th:text="${worktime.projectId}"></td>
+                <td data-property="startTime" th:text="${worktime.startTime}"></td>
+                <td data-property="endTime" th:text="${worktime.endTime}"></td>
+                <td><a th:href="@{work_time-update/{id}(id=${worktime.id})}">Edit</a>
+                    <a th:href="@{work_time-delete/{id}(id=${worktime.id})}">Delete</a></td>
             </tr>
             </tbody>
         </table>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Employees</title>
     <link rel="stylesheet" type="text/css" href="../static/css/list.css">
+    <script src="../static/js/TableSort.js"></script>
 </head>
 <body>
 <div th:switch="${employees}">
@@ -13,24 +14,25 @@
         <table>
             <thead>
             <tr>
-                <th>Id</th>
-                <th>First name</th>
-                <th>Last name</th>
-                <th>Position</th>
-                <th>Phone Number</th>
-                <th>Email</th>
+                <th data-sort="id">Id<i data-direction class="fas"></i></th>
+                <th data-sort="firstName">First name<i data-direction class="fas"></i></th>
+                <th data-sort="lastName">Last name<i data-direction class="fas"></i></th>
+                <th data-sort="position">Position<i data-direction class="fas"></i></th>
+                <th data-sort="phoneNumber">Phone Number<i data-direction class="fas"></i></th>
+                <th data-sort="emailAddress">Email<i data-direction class="fas"></i></th>
+                <th>Action</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="employee : ${employees}">
-                <td th:text="${employee.id}"></td>
-                <td th:text="${employee.firstName}"></td>
-                <td th:text="${employee.lastName}"></td>
-                <td th:text="${employee.position}"></td>
-                <td th:text="${employee.phoneNumber}"></td>
-                <td th:text="${employee.emailAddress}"></td>
-                <td><a th:href="@{employee-update/{id}(id=${employee.id})}">Edit</a></td>
-                <td><a th:href="@{employee-delete/{id}(id=${employee.id})}">Delete</a></td>
+                <td data-property="id" th:text="${employee.id}"></td>
+                <td data-property="firstName" th:text="${employee.firstName}"></td>
+                <td data-property="lastName" th:text="${employee.lastName}"></td>
+                <td data-property="position" th:text="${employee.position}"></td>
+                <td data-property="phoneNumber" th:text="${employee.phoneNumber}"></td>
+                <td data-property="emailAddress" th:text="${employee.emailAddress}"></td>
+                <td><a th:href="@{employee-update/{id}(id=${employee.id})}">Edit</a>
+                    <a th:href="@{employee-delete/{id}(id=${employee.id})}">Delete</a></td>
             </tr>
             </tbody>
         </table>
